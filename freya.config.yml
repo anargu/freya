@@ -12,7 +12,7 @@ mail:
   email: "${MAILJET_EMAIL}"
   password: "${MAILJET_PASSWORD}"
   metadata:
-    from_name: "Freya"
-    from_email: "hello@bombo.pe"
+    from_name: "${SENDER_NAME}"
+    from_email: "${SENDER_EMAIL}"
 minio:
   endpoint: "minio:9000"

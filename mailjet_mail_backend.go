@@ -6,7 +6,7 @@ import (
 	"text/template"
 )
 
-import "gopkg.in/gomail.v2"
+import gomail "gopkg.in/gomail.v2"
 
 type MailJetMailBackend struct {
 	d *gomail.Dialer
@@ -20,7 +20,7 @@ func NewMailJetMailBackend(config *MailConfig) *MailJetMailBackend {
 	}
 }
 
-func (mail *MailJetMailBackend) SendMail(config *MailConfig, t *Template, params interface{}, subject string, to []string) error {
+func (mail *MailJetMailBackend) SendMail(config *MailConfig, t *Template, params interface{}, subject string, to []string, attachments []string) error {
 	data, err := ioutil.ReadAll(t.Data)
 	if err != nil {
 		return err
@@ -43,7 +43,9 @@ func (mail *MailJetMailBackend) SendMail(config *MailConfig, t *Template, params
 	//m.SetAddressHeader("Cc", "dan@example.com", "Dan")
 	m.SetHeader("Subject", subject)
 	m.SetBody("text/html", body.String())
-	//m.Attach("/home/Alex/cat.jpg") // ready to attachment
+	for i := range attachments {
+		m.Attach(attachments[i])
+	}
 
 	if err := mail.d.DialAndSend(m); err != nil {
 		return err

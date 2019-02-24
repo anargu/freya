@@ -42,6 +42,7 @@ message SendEmailParams {
     string subject = 2;
     string templateName = 3;
     map <string, string> params = 4;
+    map <string, string> attachment = 5;
 }
 
 message SendEmailResponse {

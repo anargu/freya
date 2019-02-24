@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/bregydoc/freya/freyacon/go"
-	"github.com/k0kubun/pp"
-	"google.golang.org/grpc"
 	"log"
 	"net"
 	"os"
+
+	freya "github.com/bregydoc/freya/freyacon/go"
+	"github.com/k0kubun/pp"
+	"google.golang.org/grpc"
 )
 
 func main() {

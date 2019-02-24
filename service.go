@@ -8,7 +8,7 @@ import (
 
 	"io/ioutil"
 
-	"github.com/bregydoc/freya/freyacon/go"
+	freya "github.com/bregydoc/freya/freyacon/go"
 )
 
 type Service struct {
@@ -20,8 +20,12 @@ func (s *Service) SendEmail(ctx context.Context, params *freya.SendEmailParams) 
 	for _, i := range params.To {
 		to = append(to, i)
 	}
+	attachments := make([]string, 0) // TODO: Make a priority queque
+	for _, i := range params.Attachments {
+		attachments = append(attachments, i)
+	}
 
-	err := s.repo.SendMail(params.TemplateName, params.Params, params.Subject, to)
+	err := s.repo.SendMail(params.TemplateName, params.Params, params.Subject, to, attachments)
 
 	if err != nil {
 		return &freya.SendEmailResponse{

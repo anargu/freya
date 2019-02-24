@@ -2,9 +2,10 @@ package main
 
 import (
 	"context"
-	"github.com/bregydoc/freya/freyacon/go"
-	"google.golang.org/grpc"
 	"log"
+
+	freya "github.com/anargu/freya/freyacon/go"
+	"google.golang.org/grpc"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 		Params:       map[string]string{},
 		TemplateName: "welcome_mail",
 		To:           map[int32]string{0: "bregy.malpartida@utec.edu.pe", 1: "mateo@bombo.pe"},
+		Attachment:   map[string]string{"0": "", "1": ""},
 	}
 
 	res, err := freyaClient.SendEmail(context.Background(), in)

@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/minio/minio-go"
-	"github.com/nanobox-io/golang-scribble"
 	"log"
+
+	minio "github.com/minio/minio-go"
+	scribble "github.com/nanobox-io/golang-scribble"
 )
 
 type Repository interface {
@@ -13,7 +14,7 @@ type Repository interface {
 	GetTemplateByID(id string, withData ...bool) (*Template, error)
 	GetAllTemplates(withData ...bool) ([]*Template, error)
 
-	SendMail(templateName string, params interface{}, subject string, to []string) error
+	SendMail(templateName string, params interface{}, subject string, to []string, attachments []string) error
 	SendSMS(templateName string, params map[string]string, to *PhoneNumber) error
 }
 

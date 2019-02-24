@@ -1,10 +1,11 @@
 package main
 
 import (
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 	"strings"
+
+	yaml "gopkg.in/yaml.v2"
 )
 
 const freyaConfigFileName = "./freya.config.yml"
@@ -85,6 +86,14 @@ func inflateConfigWithEnvs(c *FreyaConfig) {
 
 	if strings.HasPrefix(c.Mail.Password, "${") {
 		c.Mail.Password = getEnvVarFromConfig(c.Mail.Password)
+	}
+
+	if strings.HasPrefix(c.Mail.MetaData.FromName, "${") {
+		c.Mail.MetaData.FromName = getEnvVarFromConfig(c.Mail.MetaData.FromName)
+	}
+
+	if strings.HasPrefix(c.Mail.MetaData.FromEmail, "${") {
+		c.Mail.MetaData.FromEmail = getEnvVarFromConfig(c.Mail.MetaData.FromEmail)
 	}
 
 }

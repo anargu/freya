@@ -2,10 +2,14 @@ package main
 
 import (
 	"context"
-	"github.com/bregydoc/freya/freyacon/go"
-	"google.golang.org/grpc"
+
+	freya "../freyacon/go"
+	// freya "../freyacon/go"
+	// "github.com/bregydoc/freya/freyacon/go"
 	"io/ioutil"
 	"log"
+
+	"google.golang.org/grpc"
 )
 
 func main() {
