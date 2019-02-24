@@ -21,7 +21,7 @@ func (s *Service) SendEmail(ctx context.Context, params *freya.SendEmailParams) 
 		to = append(to, i)
 	}
 	attachments := make([]string, 0) // TODO: Make a priority queque
-	for _, i := range params.Attachments {
+	for _, i := range params.Attachment {
 		attachments = append(attachments, i)
 	}
 
