@@ -6,7 +6,7 @@ import (
 	"net"
 	"os"
 
-	freya "github.com/bregydoc/freya/freyacon/go"
+	freya "github.com/anargu/freya/freyacon/go"
 	"github.com/k0kubun/pp"
 	"google.golang.org/grpc"
 )

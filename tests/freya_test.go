@@ -1,10 +1,11 @@
 package tests
 
 import (
-	"github.com/bregydoc/freya/freyacon/go"
-	a "github.com/stretchr/testify/assert"
 	"log"
 	"testing"
+
+	freya "github.com/anargu/freya/freyacon/go"
+	a "github.com/stretchr/testify/assert"
 )
 
 func TestNewFreya(t *testing.T) {

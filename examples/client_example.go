@@ -3,12 +3,13 @@ package main
 import (
 	"context"
 
-	freya "../freyacon/go"
 	// freya "../freyacon/go"
-	// "github.com/bregydoc/freya/freyacon/go"
+	// freya "../freyacon/go"
+
 	"io/ioutil"
 	"log"
 
+	freya "github.com/anargu/freya/freyacon/go"
 	"google.golang.org/grpc"
 )
 
